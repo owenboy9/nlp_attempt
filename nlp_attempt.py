@@ -30,27 +30,25 @@ def preprocess_text(text):
     return words
 
 bare_words = preprocess_text(text)
-for word in bare_words:
-    print(word)
 
 # function for grouping words by parts of speech, using the prepped word list
 def parts(bare_words):
-    # instantiate bare word list as nlp doc
+    # instantiate bare word list as nlp doc (nlp needs a list, not just a large amount of words, which is what bare_words is)
     doc = nlp(" ".join(bare_words))
 
     # create a dictionary to store words grouped by parts of speech
     pos_groups = {}
 
     for token in doc:
-        # check if token has valid pos
+        # check if token has a valid POS
         if token.pos_:
-            # get part of speech of token
+            # get the part of speech of the token
             pos = token.pos_
 
-            # use word from bare_words without additional processing
-            bare = token.doc
+            # use the word from bare_words without additional processing
+            bare = token.text
 
-            # add token to its pos group in dictionary
+            # add token to its POS group in dictionary
             if pos not in pos_groups:
                 pos_groups[pos] = [bare]
             else:
@@ -58,7 +56,7 @@ def parts(bare_words):
 
     return pos_groups
 
+# example usage
 pos_groups = parts(bare_words)
-
 for pos, words in pos_groups.items():
     print(f"{pos}: {words}")
