@@ -50,8 +50,6 @@ def parts(text):
         if token.pos_:
             # get the part of speech of the token
             pos = token.pos_
-            # fine-grained part-of-speech tag
-            tag = token.tag_
 
             # use the words without additional processing
             bare = token.text
@@ -59,14 +57,10 @@ def parts(text):
 
             # if pos doesn't already exist in the dictionary, create its group & add token to it
             if pos not in pos_groups:
-                pos_groups[pos] = {tag: [bare]}
-            # otherwise, if token's tag doesn't exist there, add it with the token
+                pos_groups[pos] = [bare]
+            # otherwise, add it
             else:
-                if tag not in pos_groups[pos]:
-                    pos_groups[pos][tag] = [bare]
-            # just add token to its group (pos & tag)
-                else:
-                    pos_groups[pos][tag].append(bare)
+                pos_groups[pos].append(bare)
     # return the pos dictionary w/pos groups & tag subgroups
     return pos_groups
 
@@ -74,13 +68,15 @@ pos_groups = parts(text)
 
 # lemmatize tokens in pos dictionary by making a new one
 lemmatized_pos_groups = {}
-# iterate through every item (word) in pos & tags, recreating the first dictionary structure
-for pos, tags in pos_groups.items():
-    lemmatized_pos_groups[pos] = {}
-    for tag, words in tags.items():
-        # but lemmatizing every word (i.e. also performing .strip())
-        lemmatized_pos_groups[pos][tag] = {nlp(word.lower())[0].lemma_ for word in words}
+# iterate through every item (word) in pos, recreating the first dictionary structure
+for pos, words in pos_groups.items():
+    # but lemmatizing every word (i.e. also performing .strip())
+    lemmatized_pos_groups[pos] = {nlp(word.lower())[0].lemma_ for word in words}
 
-# Print the resulting lemmatized dictionary
-for pos, tags in lemmatized_pos_groups.items():
-    print(f"{pos}: {tags}")
+# in order to print the resulting lemmatized dictionary, convert sets to lists
+for pos, words in lemmatized_pos_groups.items():
+    lemmatized_pos_groups[pos] = list(words)
+
+# print the whole thing with explanations
+for pos, words in lemmatized_pos_groups.items():
+    print(f"{spacy.explain(pos)}: {words}\n")
