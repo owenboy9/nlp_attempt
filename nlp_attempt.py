@@ -78,5 +78,15 @@ for pos, words in lemmatized_pos_groups.items():
     lemmatized_pos_groups[pos] = list(words)
 
 # print the whole thing with explanations
-for pos, words in lemmatized_pos_groups.items():
+# for pos, words in lemmatized_pos_groups.items():
+#     print(f"{spacy.explain(pos)}: {words}\n")
+
+# list undesired pos
+exclude_pos = ["SPACE", "PUNCT"]
+
+# filter out undesired POS
+final_pos_groups = {pos: words for pos, words in lemmatized_pos_groups.items() if pos not in exclude_pos}
+
+# print the whole thing with explanations
+for pos, words in final_pos_groups.items():
     print(f"{spacy.explain(pos)}: {words}\n")
