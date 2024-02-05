@@ -2,3 +2,4 @@
 2. write a function that will process reference text turning it into a list of "bare" and "relevant" words, that is, no stop words, no punctuation marks, all lower case and lemmatized.
 3. create a separate file for the menu(s)
 4. cluster words by parts of speech
+5. try reverse order: spacy won't do proper .pos on prepped words (lemmatized, stipped, etc.) so i'm trying to divide them into pos groups first, and then clean it all up (set, lemma, strip, etc) and create proper pos lists
