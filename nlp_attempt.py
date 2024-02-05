@@ -8,32 +8,8 @@ from string import punctuation
 from spacy.matcher import PhraseMatcher
 
 # import reference material
-# text = open('text.txt', 'r', encoding='utf8').read()
-text = ("""OBJECTS
+text = open('text.txt', 'r', encoding='utf8').read()
 
-
-A CARAFE, THAT IS A BLIND GLASS.
-
-A kind in glass and a cousin, a spectacle and nothing strange a single
-hurt color and an arrangement in a system to pointing. All this and not
-ordinary, not unordered in not resembling. The difference is spreading.
-
-
-GLAZED GLITTER.
-
-Nickel, what is nickel, it is originally rid of a cover.
-
-The change in that is that red weakens an hour. The change has come.
-There is no search. But there is, there is that hope and that
-interpretation and sometime, surely any is unwelcome, sometime there is
-breath and there will be a sinecure and charming very charming is that
-clean and cleansing. Certainly glittering is handsome and convincing.
-
-There is no gratitude in mercy and in medicine. There can be breakages
-in Japanese. That is no programme. That is no color chosen. It was
-chosen yesterday, that showed spitting and perhaps washing and
-polishing. It certainly showed no obligation and perhaps if borrowing is
-not natural there is some use in giving.""")
 # convert reference material into an nlp document
 doc = nlp(text)
 
@@ -77,12 +53,8 @@ for pos, words in pos_groups.items():
 for pos, words in lemmatized_pos_groups.items():
     lemmatized_pos_groups[pos] = list(words)
 
-# print the whole thing with explanations
-# for pos, words in lemmatized_pos_groups.items():
-#     print(f"{spacy.explain(pos)}: {words}\n")
-
 # list undesired pos
-exclude_pos = ["SPACE", "PUNCT"]
+exclude_pos = ["SPACE", "PUNCT", "OTHER", "SYM", "PART", "AUX", "DET", "PROPN", "NUM"]
 
 # filter out undesired POS
 final_pos_groups = {pos: words for pos, words in lemmatized_pos_groups.items() if pos not in exclude_pos}

@@ -3,3 +3,5 @@
 3. create a separate file for the menu(s)
 4. cluster words by parts of speech
 5. try reverse order: spacy won't do proper .pos on prepped words (lemmatized, stipped, etc.) so i'm trying to divide them into pos groups first, and then clean it all up (set, lemma, strip, etc) and create proper pos lists
+6. final filtered and lemmatized pos dicitonary is done. took some time, required rethinking the level of fine-grained searches, and the order in which to proceed. next step should be a simple mix word bag to see how my idea works. user input and menu will have to wait.
+
