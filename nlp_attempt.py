@@ -5,8 +5,103 @@ from string import punctuation
 
 # load eng language model
 nlp = spacy.load("en_core_web_lg")
-
+text = open('text.txt', 'r', encoding='utf8').read()
 # sort words by pos & deliver them pristine and neat (lemmatized, stripped, lower-cased)
+
+def adjectives():
+    # Initialize an empty list to store adjectives
+    adjectives = []
+    # Collect all adjectives from the document
+    for token in doc:
+        if token.pos_ == "ADJ":
+            adjectives.append(token.lemma_.lower().strip())
+    # Get user input for the number of adjectives desired in the poem
+    num_adjectives = int(input('how many adjectives do you want to include in your poem? '))
+    # Randomly select the specified number of adjectives from the collected list
+    selected_adjectives = random.sample(adjectives, min(num_adjectives, len(adjectives)))
+    return selected_adjectives
+
+
+def nouns():
+    nouns = []
+    for token in doc:
+        if token.pos_ == "NOUN":
+            nouns.append(token.lemma_.lower().strip())
+    num_nouns = int(input('how many nouns do you want to include in your poem? '))
+
+    selected_nouns = random.sample(nouns, min(num_nouns, len(nouns)))
+    return selected_nouns
+
+def pron():
+    pronouns = []
+    for token in doc:
+        if token.pos_ == "PRON":
+            pronouns.append(token.lemma_.lower().strip())
+    num_prons = int(input('how many pronouns do you want to include in your poem? '))
+
+    selected_prons = random.sample(pronouns, min(num_prons, len(pronouns)))
+    return selected_prons
+
+def adps():
+    adpositions = []
+    for token in doc:
+        if token.pos_ == "ADP":
+            adpositions.append(token.lemma_.lower().strip())
+    num_adps = int(input('how many adpositions do you want to include in your poem? '))
+
+    selected_adps = random.sample(adpositions, min(num_adps, len(adpositions)))
+    return selected_adps
+
+def conj():
+    conjunctions = []
+    for token in doc:
+        if token.pos_ == "CCONJ":
+            conjunctions.append(token.lemma_.lower().strip())
+    num_conjs = int(input('how many conjunctions do you want to include in your poem? '))
+
+    selected_conjs = random.sample(conjunctions, min(num_conjs, len(conjunctions)))
+    return selected_conjs
+
+def conj():
+    conjunctions = []
+    for token in doc:
+        if token.pos_ == "CCONJ" or token.pos_ == "SCONJ":
+            conjunctions.append(token.lemma_.lower().strip())
+    num_conjs = int(input('how many conjunctions do you want to include in your poem? '))
+
+    selected_conjs = random.sample(conjunctions, min(num_conjs, len(conjunctions)))
+    return selected_conjs
+
+def verbs():
+    verba = []
+    for token in doc:
+        if token.pos_ == "VERB":
+            verbs.append(token.lemma_.lower().strip())
+    num_verbs = int(input('how many verbs do you want to include in your poem? '))
+
+    selected_verbs = random.sample(verbs, min(num_verbs, len(verbs)))
+    return selected_verbs
+
+def adverbs():
+    adverbs = []
+    for token in doc:
+        if token.pos_ == "ADV":
+            adverbs.append(token.lemma_.lower().strip())
+    num_advs = int(input('how many adverbs do you want to include in your poem? '))
+
+    selected_advs = random.sample(adverbs, min(num_advs, len(adverbs)))
+    return selected_advs
+
+def interjections():
+    interjections = []
+    for token in doc:
+        if token.pos_ == "INTJ":
+            interjections.append(token.lemma_.lower().strip())
+    num_intjs = int(input('how many interjections do you want to include in your poem? '))
+
+    selected_intjs = random.sample(interjections, min(num_intjs, len(interjections)))
+    return selected_intjs
+
 def parts(text):
     # process  text with spacy
     doc = nlp(text)
@@ -30,6 +125,13 @@ def parts(text):
     pos_groups = {pos: list(words) for pos, words in pos_groups.items()}
 
     return pos_groups
+
+
+pos_groups = parts(text)
+# Print the resulting dictionary
+for pos in pos_groups.items():
+    print(f"{pos}")
+
 
 
 # import text from text doc
