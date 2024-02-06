@@ -1,4 +1,5 @@
 import spacy
+import random
 from spacy.lang.en.stop_words import STOP_WORDS
 from string import punctuation
 
@@ -36,6 +37,23 @@ text = open('text.txt', 'r', encoding='utf8').read()
 # run function
 pos_groups = parts(text)
 
-# print full dictionary
+num_words_per_pos = 1
+
+# Create a dictionary to store randomly selected words from each POS group
+selected_words = {}
+
+# Iterate over each POS group and randomly select words
 for pos, words in pos_groups.items():
-    print(f"{pos}: {words}\n")
+    selected_words[pos] = random.sample(words, num_words_per_pos)
+
+# Define the desired order of POS
+desired_pos_order = ['ADJ', 'NOUN', 'VERB', 'ADV', 'ADP', 'NOUN', 'CONJ', 'PRON', 'VERB', 'ADV']
+
+# Arrange the selected words dictionary based on the desired POS order
+arranged_selected_words = {pos: selected_words[pos] for pos in desired_pos_order if pos in selected_words}
+
+# Join the randomly selected words from all POS groups into a single string
+random_string = ' '.join([word for words in arranged_selected_words.values() for word in words])
+
+# Print the resulting string
+print(random_string)
