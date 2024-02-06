@@ -1,6 +1,5 @@
 import spacy
 import nlp_attempt
-import random
 from spacy.lang.en.stop_words import STOP_WORDS
 from string import punctuation
 
@@ -57,15 +56,16 @@ def start_menu():
                 run = False
             case _:
                 print(f"{answer} is not a valid option. choose either 1-8 or Q.")
+    return selected_words # Return the dictionary containing all selected words
 
-    return selected_words  # Return the dictionary containing all selected words
+# def print_selected_words(selected_words):
+#     for pos, words in selected_words.items():
+#         print(f"{pos}: {words}")
+#
+# # Call the start_menu function to get the selected words
+# selected_words = start_menu()
+#
+# # Print the selected words
+# print_selected_words(selected_words)
 
-def print_selected_words(selected_words):
-    for pos, words in selected_words.items():
-        print(f"{pos}: {words}")
-
-# Call the start_menu function to get the selected words
-selected_words = start_menu()
-
-# Print the selected words
-print_selected_words(selected_words)
+start_menu()

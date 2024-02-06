@@ -13,7 +13,7 @@ def adjectives():
     adjectives = []
     # Collect all adjectives from the document
     for token in doc:
-        if token.pos_ == "ADJ":
+        if token.pos_ == "ADJ" and token not in adjectives:
             adjectives.append(token.lemma_.lower().strip())
     # Get user input for the number of adjectives desired in the poem
     num_adjectives = int(input('how many adjectives do you want to include in your poem? '))
@@ -25,7 +25,7 @@ def adjectives():
 def nouns():
     nouns = []
     for token in doc:
-        if token.pos_ == "NOUN":
+        if token.pos_ == "NOUN" and token not in nouns:
             nouns.append(token.lemma_.lower().strip())
     num_nouns = int(input('how many nouns do you want to include in your poem? '))
 
@@ -35,7 +35,7 @@ def nouns():
 def pron():
     pronouns = []
     for token in doc:
-        if token.pos_ == "PRON":
+        if token.pos_ == "PRON" and token not in pronouns:
             pronouns.append(token.lemma_.lower().strip())
     num_prons = int(input('how many pronouns do you want to include in your poem? '))
 
@@ -45,7 +45,7 @@ def pron():
 def adps():
     adpositions = []
     for token in doc:
-        if token.pos_ == "ADP":
+        if token.pos_ == "ADP" and token not in adpositions:
             adpositions.append(token.lemma_.lower().strip())
     num_adps = int(input('how many adpositions do you want to include in your poem? '))
 
@@ -55,7 +55,7 @@ def adps():
 def conj():
     conjunctions = []
     for token in doc:
-        if token.pos_ == "CCONJ" or token.pos_ == "SCONJ":
+        if token.pos_ == "CCONJ" or token.pos_ == "SCONJ" and token not in conjunctions:
             conjunctions.append(token.lemma_.lower().strip())
     num_conjs = int(input('how many conjunctions do you want to include in your poem? '))
 
@@ -63,19 +63,19 @@ def conj():
     return selected_conjs
 
 def verbs():
-    verbs = []
+    verbss = []
     for token in doc:
-        if token.pos_ == "VERB":
-            verbs.append(token.lemma_.lower().strip())
+        if token.pos_ == "VERB" and token not in verbss:
+            verbss.append(token.lemma_.lower().strip())
     num_verbs = int(input('how many verbs do you want to include in your poem? '))
 
-    selected_verbs = random.sample(verbs, min(num_verbs, len(verbs)))
+    selected_verbs = random.sample(verbss, min(num_verbs, len(verbss)))
     return selected_verbs
 
 def adverbs():
     adverbs = []
     for token in doc:
-        if token.pos_ == "ADV":
+        if token.pos_ == "ADV" and token not in adverbs:
             adverbs.append(token.lemma_.lower().strip())
     num_advs = int(input('how many adverbs do you want to include in your poem? '))
 
@@ -85,7 +85,7 @@ def adverbs():
 def interjections():
     interjections = []
     for token in doc:
-        if token.pos_ == "INTJ":
+        if token.pos_ == "INTJ" and token not in interjections:
             interjections.append(token.lemma_.lower().strip())
     num_intjs = int(input('how many interjections do you want to include in your poem? '))
 
