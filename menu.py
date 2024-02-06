@@ -1,71 +1,116 @@
 import spacy
-import nlp_attempt
-from spacy.lang.en.stop_words import STOP_WORDS
-from string import punctuation
+import random
+import numpy
+from nlp_attempt import adjectives
+from nlp_attempt import nouns
+from nlp_attempt import pron
+from nlp_attempt import verbs
+from nlp_attempt import adps
+from nlp_attempt import interjections
+from nlp_attempt import conj
+from nlp_attempt import adverbs
 
-# load eng language model
+# Load English language model
 nlp = spacy.load("en_core_web_lg")
-# import text from text doc
+
+# Import text from text file
 text = open('text.txt', 'r', encoding='utf8').read()
 
+# Process the text with spaCy
 doc = nlp(text)
 
-
-def start_menu():
+def dyi_poem():
+    poem = []
     run = True
-    selected_words = {}  # Create an empty dictionary to store selected words
     while run:
-        answer = input("\nwelcome to your word-spitting machine"
-                       "\nchoose your words carefully:"
-                       "\n1. pronouns"
-                       "\n2. nouns"
-                       "\n3. adpositions"
-                       "\n4. conjunctions"
-                       "\n5. adjectives"
-                       "\n6. adverbs"
-                       "\n7. verbs"
-                       "\n8 interjections"
-                       "\nQ quit"
-                       "\n-->\n").strip()
-        match answer.lower():
-            case "1":
-                selected_words['pronouns'] = nlp_attempt.pron()  # Store selected pronouns
-                run = False
-            case "2":
-                selected_words['nouns'] = nlp_attempt.nouns()  # Store selected nouns
-                run = False
-            case "3":
-                selected_words['adpositions'] = nlp_attempt.adps()  # Store selected adpositions
-                run = False
-            case "4":
-                selected_words['conjunctions'] = nlp_attempt.conj()  # Store selected conjunctions
-                run = False
-            case "5":
-                selected_words['adjectives'] = nlp_attempt.adjectives()  # Store selected adjectives
-                run = False
-            case "6":
-                selected_words['adverbs'] = nlp_attempt.adverbs()  # Store selected adverbs
-                run = False
-            case "7":
-                selected_words['verbs'] = nlp_attempt.verbs()  # Store selected verbs
-                run = False
-            case "8":
-                selected_words['interjections'] = nlp_attempt.interjections()  # Store selected interjections
-                run = False
-            case "Q":
-                run = False
-            case _:
-                print(f"{answer} is not a valid option. choose either 1-8 or Q.")
-    return selected_words # Return the dictionary containing all selected words
+        # Get user input for the part of speech (POS)
+        try:
+            pos = int(input('choose your parts of speech:'
+                                '\n1. adjective\n2. noun\n3. pronoun\n'
+                                '4. verb\n5. adposition\n6. adverb\n7. interjection\n8. conjunction\n'))
+            if 0 < pos <= 8:
+                if pos == 1:
+                    poem.append(adjectives())
+                    go_on = input('need more words? y/n')
+                    if go_on == 'y':
+                        continue
+                    elif go_on == 'n':
+                        run = False
+                    else:
+                        print('invalid input')
+                        continue
+                elif pos == 2:
+                    poem.append(nouns())
+                    go_on = input('need more words? y/n')
+                    if go_on == 'y':
+                        continue
+                    elif go_on == 'n':
+                        run = False
+                    else:
+                        print('invalid input')
+                    continue
+                elif pos == 3:
+                    poem.append(pron())
+                    go_on = input('need more words? y/n')
+                    if go_on == 'y':
+                        continue
+                    elif go_on == 'n':
+                        run = False
+                    else:
+                        print('invalid input')
+                    continue
+                elif pos == 4:
+                    poem.append(verbs())
+                    go_on = input('need more words? y/n')
+                    if go_on == 'y':
+                        continue
+                    elif go_on == 'n':
+                        run = False
+                    else:
+                        print('invalid input')
+                    continue
+                elif pos == 5:
+                    poem.append(adps())
+                    go_on = input('need more words? y/n')
+                    if go_on == 'y':
+                        continue
+                    elif go_on == 'n':
+                        run = False
+                    else:
+                        print('invalid input')
+                    continue
+                elif pos == 6:
+                    poem.append(adverbs())
+                    go_on = input('need more words? y/n')
+                    if go_on == 'y':
+                        continue
+                    elif go_on == 'n':
+                        run = False
+                    else:
+                        print('invalid input')
+                    continue
+                elif pos == 7:
+                    poem.append(interjections())
+                    go_on = input('need more words? y/n')
+                    if go_on == 'y':
+                        continue
+                    elif go_on == 'n':
+                        run = False
+                    else:
+                        print('invalid input')
+                    continue
+                else:
+                    poem.append(conj())
+                    go_on = input('need more words? y/n')
+                    if go_on == 'y':
+                        continue
+                    elif go_on == 'n':
+                        run = False
+                    else:
+                        print('invalid input')
+                    continue
+        except ValueError:
+            print('invalid input')
+    print(poem)
 
-# def print_selected_words(selected_words):
-#     for pos, words in selected_words.items():
-#         print(f"{pos}: {words}")
-#
-# # Call the start_menu function to get the selected words
-# selected_words = start_menu()
-#
-# # Print the selected words
-# print_selected_words(selected_words)
-
-start_menu()
+dyi_poem()
