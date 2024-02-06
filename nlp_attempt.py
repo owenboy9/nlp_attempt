@@ -1,58 +1,41 @@
-# import spacy and the large version of the english dictionary
 import spacy
-nlp = spacy.load("en_core_web_lg")
-# import features responsible for filtering out stop words and punctuation
 from spacy.lang.en.stop_words import STOP_WORDS
 from string import punctuation
-# import the feature that allows word search
-from spacy.matcher import PhraseMatcher
 
-# import reference material
-text = open('text.txt', 'r', encoding='utf8').read()
+# load eng language model
+nlp = spacy.load("en_core_web_lg")
 
-# convert reference material into nlp document
-doc = nlp(text)
-
-# function for grouping words by parts of speech, using the prepped word list
+# sort words by pos & deliver them pristine and neat (lemmatized, stripped, lower-cased)
 def parts(text):
-    # instantiate text as nlp doc
+    # process  text with spacy
     doc = nlp(text)
 
-    # create a dictionary to store words grouped by parts of speech
+    # list pos to exclude
+    exclude_pos = {"SPACE", "PUNCT", "X", "SYM", "PART", "AUX", "DET", "PROPN", "NUM"}
+
+    # empty dictionary to store words grouped by pos
     pos_groups = {}
-    # run through the whole text
+
+    # iterate over tokens in doc
     for token in doc:
-        # check if token has a valid pos
-        if token.pos_:
-            # get the part of speech of the token
-            pos = token.pos_
-            # use the words without additional processing for greater pos accuracy
-            bare = token.text
-            # create a list of pos to be excluded from final dictionary & use it as first filter
-            exclude_pos = ["SPACE", "PUNCT", "X", "SYM", "PART", "AUX", "DET", "PROPN", "NUM"]
-            if pos not in exclude_pos:
-                # if pos doesn't already exist in dictionary, create its group & add token to it
-                if pos not in pos_groups:
-                    pos_groups[pos] = [bare]
-                # otherwise, add it to existing pos group
-                else:
-                    pos_groups[pos].append(bare)
-    # return the pos dictionary w/pos groups
+        # if token a valid pos and not one of the unwelcome ones
+        if token.pos_ not in exclude_pos:
+            # lemmatize it, strip and convert it to lowercase
+            lemma = token.lemma_.lower().strip()
+            # add lemma to its pos group: set pos name as default key, if not yet a value, set value to an empty set
+            pos_groups.setdefault(token.pos_, set()).add(lemma)
+
+    # convert sets to lists (easier to deal with), iterating through key-value pairs in pos_groups dictionary
+    pos_groups = {pos: list(words) for pos, words in pos_groups.items()}
+
     return pos_groups
 
-# press play to get the outcome
+
+# import text from text doc
+text = open('text.txt', 'r', encoding='utf8').read()
+# run function
 pos_groups = parts(text)
 
-# lemmatize tokens in pos dictionary by making a new one
-lemmatized_pos_groups = {}
-# iterate through every item (word) in every pos, recreating the first dictionary's structure
+# print full dictionary
 for pos, words in pos_groups.items():
-    # but lemmatizing every word (also turning it to lower case and performing .strip() by default)
-    lemmatized_pos_groups[pos] = {nlp(word.lower())[0].lemma_ for word in words}
-
-# in order to print the resulting lemmatized dictionary, convert sets to lists
-for pos, words in lemmatized_pos_groups.items():
-    lemmatized_pos_groups[pos] = list(words)
-
-for pos, words in lemmatized_pos_groups.items():
-    print(f"{spacy.explain(pos)}: {words}\n")
+    print(f"{pos}: {words}\n")
