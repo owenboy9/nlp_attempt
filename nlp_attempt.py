@@ -7,7 +7,7 @@ from string import punctuation
 nlp = spacy.load("en_core_web_lg")
 text = open('text.txt', 'r', encoding='utf8').read()
 # sort words by pos & deliver them pristine and neat (lemmatized, stripped, lower-cased)
-
+doc = nlp(text)
 def adjectives():
     # Initialize an empty list to store adjectives
     adjectives = []
@@ -55,16 +55,6 @@ def adps():
 def conj():
     conjunctions = []
     for token in doc:
-        if token.pos_ == "CCONJ":
-            conjunctions.append(token.lemma_.lower().strip())
-    num_conjs = int(input('how many conjunctions do you want to include in your poem? '))
-
-    selected_conjs = random.sample(conjunctions, min(num_conjs, len(conjunctions)))
-    return selected_conjs
-
-def conj():
-    conjunctions = []
-    for token in doc:
         if token.pos_ == "CCONJ" or token.pos_ == "SCONJ":
             conjunctions.append(token.lemma_.lower().strip())
     num_conjs = int(input('how many conjunctions do you want to include in your poem? '))
@@ -73,7 +63,7 @@ def conj():
     return selected_conjs
 
 def verbs():
-    verba = []
+    verbs = []
     for token in doc:
         if token.pos_ == "VERB":
             verbs.append(token.lemma_.lower().strip())
@@ -104,8 +94,6 @@ def interjections():
 
 def parts(text):
     # process  text with spacy
-    doc = nlp(text)
-
     # list pos to exclude
     exclude_pos = {"SPACE", "PUNCT", "X", "SYM", "PART", "AUX", "DET", "PROPN", "NUM"}
 
