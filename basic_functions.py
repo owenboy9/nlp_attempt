@@ -10,17 +10,22 @@ text = open('text.txt', 'r', encoding='utf8').read()
 # convert text to nlp
 doc = nlp(text)
 
+with open("processed_data.txt", "w") as file:
+    for token in doc:
+        file.write(f"{token.text}\t{token.pos_}\t{token.lemma_}\n")
+
+
 # functions choosing specific pos from text: pick as many as user wishes random words within the pos. same pattern everywhere
 def adjectives():
     # empty tupple to store words
     adjectivess = []
     for token in doc:
         # get all adjectives from text, stripped and lemmatized, add to tupple, make sure there are no repetitions
-        if token.pos_ == "ADJ" and token not in adjectivess:
+        if token.pos_ == "ADJ" and token.text not in adjectivess:
             adjectivess.append(token.lemma_.lower().strip())
     # get user input for the number of adjectives desired in the poem
     num_adjectives = int(input('how many adjectives do you want to include in your poem? '))
-    # randomly select the specified number of adjectives from the tupple
+    # shuffle the tuple to prevent potential repetitions ensuing from number randomization
     random.shuffle(adjectivess)
     # slice the shuffled list to get the desired number of unique adjectives
     selected_adjectives = adjectivess[:min(num_adjectives, len(adjectivess))]

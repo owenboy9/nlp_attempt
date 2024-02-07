@@ -36,12 +36,15 @@ def dyi_poem():
             # make sure user input is within available options
             if 0 < pos <= 8:
                 if pos == 1:
-                    # call a function
+                    # call a pos function from basic_functions, same for every function below
                     poem.append(adjectives())
+                    # let user decide whether they need more words
                     go_on = input('need more words? y/n')
                     if go_on == 'y':
+                        # return to main pos menu, keep choosing
                         continue
                     elif go_on == 'n':
+                        # exit loop, go straight to return
                         run = False
                     else:
                         print('invalid input')
@@ -117,10 +120,15 @@ def dyi_poem():
                         print('invalid input')
                     continue
         except ValueError:
+            # prevent program from crashing if invalid input
             print('invalid input')
-
+    # reformat resulting tupple into a neat sentence
     spitout = ' '.join(word[0] for word in poem)
     return spitout
 
+# run function
 spitout = dyi_poem()
-print(spitout)
+
+print('_' * 50)
+print('here\'s your poem:\n{}\n'.format(spitout))
+print('_' * 50)
