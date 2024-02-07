@@ -2,14 +2,14 @@ import spacy
 from spacytextblob.spacytextblob import SpacyTextBlob
 import random
 import numpy
-from nlp_attempt import adjectives
-from nlp_attempt import nouns
-from nlp_attempt import pron
-from nlp_attempt import verbs
-from nlp_attempt import adps
-from nlp_attempt import interjections
-from nlp_attempt import conj
-from nlp_attempt import adverbs
+from basic_functions import adjectives
+from basic_functions import nouns
+from basic_functions import pron
+from basic_functions import verbs
+from basic_functions import adps
+from basic_functions import interjections
+from basic_functions import conj
+from basic_functions import adverbs
 
 # load English language model
 nlp = spacy.load("en_core_web_lg")
