@@ -114,6 +114,7 @@ def dyi_poem():
             print('invalid input')
 
     spitout = ' '.join(word[0] for word in poem)
-    print(spitout)
+    return spitout
 
-dyi_poem()
+spitout = dyi_poem()
+print(spitout)
