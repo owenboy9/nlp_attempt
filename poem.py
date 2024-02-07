@@ -1,4 +1,5 @@
 import spacy
+from spacytextblob.spacytextblob import SpacyTextBlob
 import random
 import numpy
 from nlp_attempt import adjectives
@@ -10,15 +11,15 @@ from nlp_attempt import interjections
 from nlp_attempt import conj
 from nlp_attempt import adverbs
 
-# Load English language model
+# load English language model
 nlp = spacy.load("en_core_web_lg")
 
-# Import text from text file
+# import text from file
 text = open('text.txt', 'r', encoding='utf8').read()
 
-# Process the text with spaCy
+# process text with spaCy
 doc = nlp(text)
-
+# function
 def dyi_poem():
     poem = []
     run = True
@@ -111,6 +112,8 @@ def dyi_poem():
                     continue
         except ValueError:
             print('invalid input')
-    print(poem)
+
+    spitout = ' '.join(word[0] for word in poem)
+    print(spitout)
 
 dyi_poem()
