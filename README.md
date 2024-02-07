@@ -8,3 +8,11 @@ in the future, the app will:
 3. offer the option of choosing if the output should have a 'positive' or 'negative' sentiment
 3. offer a more elaborate graphic interface
 4. be available online, be in on a localhost server, but still
+
+***in fact***
+
+it's not true.
+
+it will work like a piano: you press parts of speech in the order you want to have them, and it'll compose your poem of words corresponding to them, in the order you asked for.
+
+the general sentiment will still be an option.
