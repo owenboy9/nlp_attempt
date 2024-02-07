@@ -1,5 +1,4 @@
 import spacy
-from spacytextblob.spacytextblob import SpacyTextBlob
 import random
 import numpy
 from basic_functions import adjectives
@@ -19,17 +18,23 @@ text = open('text.txt', 'r', encoding='utf8').read()
 
 # process text with spaCy
 doc = nlp(text)
-# function
+# function: user input = desired number of words from each of the pos groups that are made available,
+# output: a verse generated out of words randomly picked, within each pos category, from text
 def dyi_poem():
+    # empty tuple to store the words in
     poem = []
+    # initiate loop with easy break option
     run = True
     while run:
-        # Get user input for the part of speech (POS)
+        # make sure user input is an int & prevent program from crashing
         try:
+            # user input for pos
             pos = int(input('choose your parts of speech:'
                                 '\n1. adjective\n2. noun\n3. pronoun\n'
                                 '4. verb\n5. adposition\n6. adverb\n7. interjection\n8. conjunction\n'))
+            # make sure user input is correct
             if 0 < pos <= 8:
+                #/Library/Frameworks/Python.framework/Versions/3.12/bin/python3
                 if pos == 1:
                     poem.append(adjectives())
                     go_on = input('need more words? y/n')
