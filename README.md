@@ -5,5 +5,6 @@ a simple hybrid of a dadaist poet and a pytia, an app deeply rooted in european 
 in the future, the app will:
 1. arrange the words in a controlled order, interlacing the different parts of speech instead of jamming them together
 2. offer the option of ordering a poem on a theme of one's choice
+3. offer the option of choosing if the output should have a 'positive' or 'negative' sentiment
 3. offer a more elaborate graphic interface
 4. be available online, be in on a localhost server, but still
