@@ -5,21 +5,24 @@ from string import punctuation
 
 # load eng language model
 nlp = spacy.load("en_core_web_lg")
+# import text from file
 text = open('text.txt', 'r', encoding='utf8').read()
-# sort words by pos & deliver them pristine and neat (lemmatized, stripped, lower-cased)
+# convert text to nlp
 doc = nlp(text)
+
+# functions choosing specific pos from text: pick as many as user wishes random words within the pos. same pattern everywhere
 def adjectives():
-    # Initialize an empty list to store adjectives
+    # empty tupple to store words
     adjectivess = []
-    # Collect all adjectives from the document
     for token in doc:
+        # get all adjectives from text, stripped and lemmatized, add to tupple, make sure there are no repetitions
         if token.pos_ == "ADJ" and token not in adjectivess:
             adjectivess.append(token.lemma_.lower().strip())
-    # Get user input for the number of adjectives desired in the poem
+    # get user input for the number of adjectives desired in the poem
     num_adjectives = int(input('how many adjectives do you want to include in your poem? '))
-    # Randomly select the specified number of adjectives from the collected list
+    # randomly select the specified number of adjectives from the tupple
     random.shuffle(adjectivess)
-    # Slice the shuffled list to get the desired number of unique adjectives
+    # slice the shuffled list to get the desired number of unique adjectives
     selected_adjectives = adjectivess[:min(num_adjectives, len(adjectivess))]
     return selected_adjectives
 
@@ -32,7 +35,6 @@ def nouns():
     num_nouns = int(input('how many nouns do you want to include in your poem? '))
 
     random.shuffle(nounss)
-    # Slice the shuffled list to get the desired number of unique adjectives
     selected_nouns = nounss[:min(num_nouns, len(nounss))]
     return selected_nouns
 
@@ -43,8 +45,6 @@ def pron():
             pronouns.append(token.lemma_.lower().strip())
     num_prons = int(input('how many pronouns do you want to include in your poem? '))
     random.shuffle(pronouns)
-    # Slice the shuffled list to get the desired number of unique adjectives
-
     selected_prons = pronouns[:min(num_prons, len(pronouns))]
     return selected_prons
 
@@ -56,8 +56,6 @@ def adps():
     num_adps = int(input('how many adpositions do you want to include in your poem? '))
 
     random.shuffle(adpositions)
-    # Slice the shuffled list to get the desired number of unique adjectives
-
     selected_adps = adpositions[:min(num_adps, len(adpositions))]
     return selected_adps
 
@@ -69,8 +67,6 @@ def conj():
     num_conjs = int(input('how many conjunctions do you want to include in your poem? '))
 
     random.shuffle(conjunctions)
-    # Slice the shuffled list to get the desired number of unique adjectives
-
     selected_conjs = conjunctions[:min(num_conjs, len(conjunctions))]
     return selected_conjs
 
@@ -82,8 +78,6 @@ def verbs():
     num_verbs = int(input('how many verbs do you want to include in your poem? '))
 
     random.shuffle(verbss)
-    # Slice the shuffled list to get the desired number of unique adjectives
-
     selected_verbs = verbss[:min(num_verbs, len(verbss))]
     return selected_verbs
 
@@ -95,8 +89,6 @@ def adverbs():
     num_advs = int(input('how many adverbs do you want to include in your poem? '))
 
     random.shuffle(adverbss)
-    # Slice the shuffled list to get the desired number of unique adjectives
-
     selected_advs = adverbss[:min(num_advs, len(adverbss))]
     return selected_advs
 
@@ -108,8 +100,6 @@ def interjections():
     num_intjs = int(input('how many interjections do you want to include in your poem? '))
 
     random.shuffle(interjectionss)
-    # Slice the shuffled list to get the desired number of unique adjectives
-
     selected_intjs = interjectionss[:min(num_intjs, len(interjectionss))]
     return selected_intjs
 

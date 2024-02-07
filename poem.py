@@ -1,6 +1,7 @@
 import spacy
 import random
 import numpy
+# import pos functions from basic_functions
 from basic_functions import adjectives
 from basic_functions import nouns
 from basic_functions import pron
@@ -10,7 +11,7 @@ from basic_functions import interjections
 from basic_functions import conj
 from basic_functions import adverbs
 
-# load English language model
+# load eng lang model
 nlp = spacy.load("en_core_web_lg")
 
 # import text from file
@@ -32,10 +33,10 @@ def dyi_poem():
             pos = int(input('choose your parts of speech:'
                                 '\n1. adjective\n2. noun\n3. pronoun\n'
                                 '4. verb\n5. adposition\n6. adverb\n7. interjection\n8. conjunction\n'))
-            # make sure user input is correct
+            # make sure user input is within available options
             if 0 < pos <= 8:
-                #/Library/Frameworks/Python.framework/Versions/3.12/bin/python3
                 if pos == 1:
+                    # call a function
                     poem.append(adjectives())
                     go_on = input('need more words? y/n')
                     if go_on == 'y':
