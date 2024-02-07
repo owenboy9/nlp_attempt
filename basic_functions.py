@@ -10,9 +10,6 @@ text = open('text.txt', 'r', encoding='utf8').read()
 # convert text to nlp
 doc = nlp(text)
 
-with open("processed_data.txt", "w") as file:
-    for token in doc:
-        file.write(f"{token.text}\t{token.pos_}\t{token.lemma_}\n")
 
 
 # functions choosing specific pos from text: pick as many as user wishes random words within the pos. same pattern everywhere
