@@ -21,16 +21,25 @@ def adjectives():
         if token.pos_ == "ADJ" and token.text not in adjectivess:
             # stripped and lemmatized, add them to tuple
             adjectivess.append(token.lemma_.lower().strip())
-    # get user input for the number of adjectives desired in the poem
-    num_adjectives = int(input('how many adjectives do you want to include in your poem? '))
+    # while loop for trying if input is correct
+    run = True
+    while run:
+        # make sure input's an int
+        try:
+            # get user input for the number of adjectives desired in the poem
+            num_adjectives = int(input('how many adjectives do you want to include in your poem? '))
+            run = False
+        except ValueError:
+            # catch invalid input w/o crashing
+            print('invalid input try again')
     # shuffle the tuple to prevent potential repetitions ensuing from number randomization
     random.shuffle(adjectivess)
     # slice the shuffled list to get the desired number of unique adjectives
     selected_adjectives = adjectivess[:min(num_adjectives, len(adjectivess))]
     return selected_adjectives
 
-# adj = adjectives()
-# print(adj)
+adj = adjectives()
+print(adj)
 
 
 def nouns():
@@ -38,8 +47,13 @@ def nouns():
     for token in doc:
         if token.pos_ == "NOUN" and token not in nounss:
             nounss.append(token.lemma_.lower().strip())
-    num_nouns = int(input('how many nouns do you want to include in your poem? '))
-
+    run = True
+    while run:
+        try:
+            num_nouns = int(input('how many nouns do you want to include in your poem? '))
+            run = False
+        except ValueError:
+            print('invalid input try again')
     random.shuffle(nounss)
     selected_nouns = nounss[:min(num_nouns, len(nounss))]
     return selected_nouns
@@ -49,7 +63,13 @@ def pron():
     for token in doc:
         if token.pos_ == "PRON" and token not in pronouns:
             pronouns.append(token.lemma_.lower().strip())
-    num_prons = int(input('how many pronouns do you want to include in your poem? '))
+    run = True
+    while run:
+        try:
+            num_prons = int(input('how many pronouns do you want to include in your poem? '))
+            run = False
+        except ValueError:
+            print('invalid input try again')
     random.shuffle(pronouns)
     selected_prons = pronouns[:min(num_prons, len(pronouns))]
     return selected_prons
@@ -59,8 +79,13 @@ def adps():
     for token in doc:
         if token.pos_ == "ADP" and token not in adpositions:
             adpositions.append(token.lemma_.lower().strip())
-    num_adps = int(input('how many adpositions do you want to include in your poem? '))
-
+    run = True
+    while run:
+        try:
+            num_adps = int(input('how many adpositions do you want to include in your poem? '))
+            run = False
+        except ValueError:
+            print('invalid input try again')
     random.shuffle(adpositions)
     selected_adps = adpositions[:min(num_adps, len(adpositions))]
     return selected_adps
@@ -70,8 +95,13 @@ def conj():
     for token in doc:
         if token.pos_ == "CCONJ" or token.pos_ == "SCONJ" and token not in conjunctions:
             conjunctions.append(token.lemma_.lower().strip())
-    num_conjs = int(input('how many conjunctions do you want to include in your poem? '))
-
+    run = True
+    while run:
+        try:
+            num_conjs = int(input('how many conjunctions do you want to include in your poem? '))
+            run = False
+        except ValueError:
+            print('invalid input try again')
     random.shuffle(conjunctions)
     selected_conjs = conjunctions[:min(num_conjs, len(conjunctions))]
     return selected_conjs
@@ -81,8 +111,13 @@ def verbs():
     for token in doc:
         if token.pos_ == "VERB" and token not in verbss:
             verbss.append(token.lemma_.lower().strip())
-    num_verbs = int(input('how many verbs do you want to include in your poem? '))
-
+    run = True
+    while run:
+        try:
+            num_verbs = int(input('how many verbs do you want to include in your poem? '))
+            run = False
+        except ValueError:
+            print('invalid input try again')
     random.shuffle(verbss)
     selected_verbs = verbss[:min(num_verbs, len(verbss))]
     return selected_verbs
@@ -92,8 +127,13 @@ def adverbs():
     for token in doc:
         if token.pos_ == "ADV" and token not in adverbss:
             adverbss.append(token.lemma_.lower().strip())
-    num_advs = int(input('how many adverbs do you want to include in your poem? '))
-
+    run = True
+    while run:
+        try:
+            num_advs = int(input('how many adverbs do you want to include in your poem? '))
+            run = False
+        except ValueError:
+            print('invalid input try again')
     random.shuffle(adverbss)
     selected_advs = adverbss[:min(num_advs, len(adverbss))]
     return selected_advs
@@ -103,8 +143,13 @@ def interjections():
     for token in doc:
         if token.pos_ == "INTJ" and token not in interjectionss:
             interjectionss.append(token.lemma_.lower().strip())
-    num_intjs = int(input('how many interjections do you want to include in your poem? '))
-
+    run = True
+    while run:
+        try:
+            num_intjs = int(input('how many interjections do you want to include in your poem? '))
+            run = False
+        except ValueError:
+            print('invalid input try again')
     random.shuffle(interjectionss)
     selected_intjs = interjectionss[:min(num_intjs, len(interjectionss))]
     return selected_intjs
