@@ -11,7 +11,6 @@ text = open('text.txt', 'r', encoding='utf8').read()
 doc = nlp(text)
 
 
-
 # functions choosing specific pos from text: pick as many as user wishes random words within the pos. same pattern everywhere
 def adjectives():
     # empty tupple to store words
@@ -37,9 +36,6 @@ def adjectives():
     # slice the shuffled list to get the desired number of unique adjectives
     selected_adjectives = adjectivess[:min(num_adjectives, len(adjectivess))]
     return selected_adjectives
-
-adj = adjectives()
-print(adj)
 
 
 def nouns():
