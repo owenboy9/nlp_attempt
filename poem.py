@@ -122,7 +122,7 @@ def dyi_poem():
         except ValueError:
             # prevent program from crashing if invalid input
             print('invalid input')
-        # reformat resulting tupple into a neat sentence
+        # reformat resulting tupple into a neat line of words
     spitout = ' '.join(word for word in poem)
     return spitout
 
@@ -130,5 +130,5 @@ def dyi_poem():
 spitout = dyi_poem()
 
 print('_' * 50)
-print(f'here\'s your poem:\n {spitout}')
+print(f'here\'s your poem:\n{spitout}')
 print('_' * 50)

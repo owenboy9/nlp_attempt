@@ -17,8 +17,9 @@ def adjectives():
     # empty tupple to store words
     adjectivess = []
     for token in doc:
-        # get all adjectives from text, stripped and lemmatized, add to tupple, make sure there are no repetitions
+        # get all adjectives from text, make sure there are no repetitions
         if token.pos_ == "ADJ" and token.text not in adjectivess:
+            # stripped and lemmatized, add them to tuple
             adjectivess.append(token.lemma_.lower().strip())
     # get user input for the number of adjectives desired in the poem
     num_adjectives = int(input('how many adjectives do you want to include in your poem? '))
