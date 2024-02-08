@@ -1,6 +1,4 @@
 import spacy
-import random
-import numpy
 # import pos functions from basic_functions
 from basic_functions import adjectives
 from basic_functions import nouns
