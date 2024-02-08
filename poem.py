@@ -1,13 +1,6 @@
 import spacy
 # import pos functions from basic_functions
-from basic_functions import adjectives
-from basic_functions import nouns
-from basic_functions import pron
-from basic_functions import verbs
-from basic_functions import adps
-from basic_functions import interjections
-from basic_functions import conj
-from basic_functions import adverbs
+from basic_functions import adjectives, nouns, pron, verbs, adps, interjections, conj, adverbs
 
 # load eng lang model
 nlp = spacy.load("en_core_web_lg")
@@ -20,7 +13,7 @@ doc = nlp(text)
 # function: user input = desired number of words from each of the pos groups that are made available,
 # output: a verse generated out of words randomly picked, within each pos category, from text
 def dyi_poem():
-    # empty tuple to store the words in
+    # empty array to store the words in
     poem = []
     # initiate loop with easy break option
     run = True
@@ -120,7 +113,7 @@ def dyi_poem():
         except ValueError:
             # prevent program from crashing if invalid input
             print('invalid input')
-        # reformat resulting tupple into a neat line of words
+        # reformat resulting array into a neat line of words
     spitout = ' '.join(word for word in poem)
     return spitout
 

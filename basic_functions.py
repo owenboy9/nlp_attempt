@@ -10,12 +10,12 @@ doc = nlp(text)
 
 # functions choosing specific pos from text: pick as many as user wishes random words within the pos. same pattern everywhere
 def adjectives():
-    # empty tupple to store words
+    # empty array to store words
     adjectivess = []
     for token in doc:
         # get all adjectives from text, make sure there are no repetitions
         if token.pos_ == "ADJ" and token.text not in adjectivess:
-            # stripped and lemmatized, add them to tuple
+            # stripped and lemmatized, add them to array
             adjectivess.append(token.lemma_.lower().strip())
     # while loop for trying if input is correct
     run = True
@@ -28,7 +28,7 @@ def adjectives():
         except ValueError:
             # catch invalid input w/o crashing
             print('invalid input try again')
-    # shuffle the tuple to prevent potential repetitions ensuing from number randomization
+    # shuffle the array to prevent potential repetitions ensuing from number randomization
     random.shuffle(adjectivess)
     # slice the shuffled list to get the desired number of unique adjectives
     selected_adjectives = adjectivess[:min(num_adjectives, len(adjectivess))]
