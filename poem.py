@@ -36,10 +36,10 @@ def dyi_poem():
             # make sure user input is within available options
             if 0 < pos <= 8:
                 if pos == 1:
-                    # call a pos function from basic_functions, same for every function below
-                    poem.append(adjectives())
+                    # call pos function, add each item to poem (extend(); not append() --> returns one word/pos)
+                    poem.extend(adjectives())
                     # let user decide whether they need more words
-                    go_on = input('need more words? y/n')
+                    go_on = input('need more words? y/n\n')
                     if go_on == 'y':
                         # return to main pos menu, keep choosing
                         continue
@@ -50,8 +50,8 @@ def dyi_poem():
                         print('invalid input')
                         continue
                 elif pos == 2:
-                    poem.append(nouns())
-                    go_on = input('need more words? y/n')
+                    poem.extend(nouns())
+                    go_on = input('need more words? y/n\n')
                     if go_on == 'y':
                         continue
                     elif go_on == 'n':
@@ -60,8 +60,8 @@ def dyi_poem():
                         print('invalid input')
                     continue
                 elif pos == 3:
-                    poem.append(pron())
-                    go_on = input('need more words? y/n')
+                    poem.extend(pron())
+                    go_on = input('need more words? y/n\n')
                     if go_on == 'y':
                         continue
                     elif go_on == 'n':
@@ -70,8 +70,8 @@ def dyi_poem():
                         print('invalid input')
                     continue
                 elif pos == 4:
-                    poem.append(verbs())
-                    go_on = input('need more words? y/n')
+                    poem.extend(verbs())
+                    go_on = input('need more words? y/n\n')
                     if go_on == 'y':
                         continue
                     elif go_on == 'n':
@@ -80,8 +80,8 @@ def dyi_poem():
                         print('invalid input')
                     continue
                 elif pos == 5:
-                    poem.append(adps())
-                    go_on = input('need more words? y/n')
+                    poem.extend(adps())
+                    go_on = input('need more words? y/n\n')
                     if go_on == 'y':
                         continue
                     elif go_on == 'n':
@@ -90,8 +90,8 @@ def dyi_poem():
                         print('invalid input')
                     continue
                 elif pos == 6:
-                    poem.append(adverbs())
-                    go_on = input('need more words? y/n')
+                    poem.extend(adverbs())
+                    go_on = input('need more words? y/n\n')
                     if go_on == 'y':
                         continue
                     elif go_on == 'n':
@@ -100,8 +100,8 @@ def dyi_poem():
                         print('invalid input')
                     continue
                 elif pos == 7:
-                    poem.append(interjections())
-                    go_on = input('need more words? y/n')
+                    poem.extend(interjections())
+                    go_on = input('need more words? y/n\n')
                     if go_on == 'y':
                         continue
                     elif go_on == 'n':
@@ -110,8 +110,8 @@ def dyi_poem():
                         print('invalid input')
                     continue
                 else:
-                    poem.append(conj())
-                    go_on = input('need more words? y/n')
+                    poem.extend(conj())
+                    go_on = input('need more words? y/n\n')
                     if go_on == 'y':
                         continue
                     elif go_on == 'n':
@@ -122,13 +122,13 @@ def dyi_poem():
         except ValueError:
             # prevent program from crashing if invalid input
             print('invalid input')
-    # reformat resulting tupple into a neat sentence
-    spitout = ' '.join(word[0] for word in poem)
+        # reformat resulting tupple into a neat sentence
+    spitout = ' '.join(word for word in poem)
     return spitout
 
 # run function
 spitout = dyi_poem()
 
 print('_' * 50)
-print('here\'s your poem:\n{}\n'.format(spitout))
+print(f'here\'s your poem:\n {spitout}')
 print('_' * 50)

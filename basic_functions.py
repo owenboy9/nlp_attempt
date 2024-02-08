@@ -28,6 +28,9 @@ def adjectives():
     selected_adjectives = adjectivess[:min(num_adjectives, len(adjectivess))]
     return selected_adjectives
 
+# adj = adjectives()
+# print(adj)
+
 
 def nouns():
     nounss = []
