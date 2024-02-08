@@ -16,6 +16,3 @@ def one_word(filename):
     # variable to store random.choice()
     one = random.choice(words)
     return one
-
-one = one_word('more_text.txt')
-print(one)
