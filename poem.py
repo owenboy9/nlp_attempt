@@ -13,7 +13,7 @@ doc = nlp(text)
 # function: user input = desired number of words from each of the pos groups that are made available,
 # output: a verse generated out of words randomly picked, within each pos category, from text
 def dyi_poem():
-    # empty array to store the words in
+    # empty list to store the words in
     poem = []
     # initiate loop with easy break option
     run = True

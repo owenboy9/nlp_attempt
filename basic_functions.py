@@ -35,6 +35,7 @@ def adjectives():
     return selected_adjectives
 
 
+
 def nouns():
     nounss = []
     for token in doc:
