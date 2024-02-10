@@ -1,4 +1,4 @@
-a simple hybrid of a dadaist poet and a pytia, an app deeply rooted in european romantic tradition, in other words. it asks the user to choose how many words from the parts of speech that are on offer they want to use, and then it fishes those words at random from gertrude stein's tender buttons and virginia woolf's mrs. dalloway. then it spits out a prophetic verse.
+a simple hybrid of a dadaist poet and a pythia, an app deeply rooted in european romantic tradition, in other words. it asks the user to choose how many words from the parts of speech that are on offer they want to use, and then it fishes those words at random from gertrude stein's tender buttons and virginia woolf's mrs. dalloway. then it spits out a prophetic verse.
 
 ***more to come***
 

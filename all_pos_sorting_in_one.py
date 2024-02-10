@@ -12,7 +12,7 @@ doc = nlp(text)
 # define pos_lists as a global variable
 pos_lists = {}
 
-def sort_and_safe():
+def sort_and_save():
     global pos_lists  # dictionary to store lists for each pos
     # list punctuation marks and newlines to exclude from text
     skip_words = list(punctuation) + ['\n']
@@ -26,6 +26,9 @@ def sort_and_safe():
         if token.text not in skip_words and pos not in exclude_pos:
             # filter out stubborn rubbish
             if '--' not in token.text:
+                # convert 'SCONJ' to 'CCONJ' to eliminate unnecessary distinction
+                if pos == 'SCONJ':
+                    pos = 'CCONJ'
                 # if a specific word's pos is not yet in the dictionary
                 if pos not in pos_lists:
                     # create an empty list for the pos
@@ -33,3 +36,4 @@ def sort_and_safe():
                 # add lemma to the list for the pos if it's not already present
                 if token.lemma_.lower().strip() not in pos_lists[pos]:
                     pos_lists[pos].append(token.lemma_.lower().strip())
+    return pos_lists
