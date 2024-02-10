@@ -24,23 +24,12 @@ def sort_and_safe():
         pos = token.pos_
         # target the words we do want to deal with
         if token.text not in skip_words and pos not in exclude_pos:
-            # if a specific word's pos is not yet in the dictionary
-            if pos not in pos_files:
-                # use set() to ensure nothing will be duplicated in pos_files dictionary
-                pos_files[pos] = set()
-                # create new file if it doesn't exist yet naming it after the relevant pos tag
-                file_name = f"{pos}_words.txt"
-                # standard python module os.path.exists() checks if file_name exists in file system (tracking its path)
-                if not os.path.exists(file_name):
-                    # if it doesn't, open/create a new one, write mode, and close it right away (standard procedure)
-                    open(file_name, 'w').close()
-            # open file in read mode ("r") to check if word is already present
-            with open(f"{pos}_words.txt", "r") as file:
-                # if word not already in it
-                if token.lemma_.lower().strip() not in file.read():
-                    # open file in append mode ("a") to avoid overwriting existing content
-                    with open(f"{pos}_words.txt", "a") as file_append:
-                        # & add word to it
-                        file_append.write(f"{token.lemma_.lower().strip()}\n")
-                    # add word to set to track uniqueness
-                    pos_files[pos].add(token.lemma_.lower().strip())
+            # filter out stubborn rubbish
+            if '--' not in token.text:
+                # if a specific word's pos is not yet in the dictionary
+                if pos not in pos_lists:
+                    # create an empty list for the pos
+                    pos_lists[pos] = []
+                # add lemma to the list for the pos if it's not already present
+                if token.lemma_.lower().strip() not in pos_lists[pos]:
+                    pos_lists[pos].append(token.lemma_.lower().strip())
