@@ -3,7 +3,7 @@ import random
 # load eng language model
 nlp = spacy.load("en_core_web_lg")
 #import the relevant function with the global variable dictionary of pos lists
-import all_pos_sorting_in_one
+from all_pos_sorting_in_one import pos_lists
 
 
 # function for picking ONE random word from a pos list: list = user input

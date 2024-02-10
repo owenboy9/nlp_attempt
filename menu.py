@@ -2,6 +2,7 @@ import os
 import spacy
 # import the relevant function to be called in the menu
 from word_by_word import one_word
+from all_pos_sorting_in_one import pos_lists, sort_and_save
 # load eng lang model
 nlp = spacy.load("en_core_web_lg")
 
