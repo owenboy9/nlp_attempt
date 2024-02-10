@@ -9,12 +9,11 @@ text = open('text.txt', 'r', encoding='utf8').read()
 # convert text to nlp
 doc = nlp(text)
 
-# define pos_files as a global variable because of delete function further down
-pos_files = {}
+# define pos_lists as a global variable
+pos_lists = {}
 
-# function sorting words by pos & creating text files to write them into right away
-def preprocess_and_write_to_files():
-    global pos_files  # dictionary to store files for each pos
+def sort_and_safe():
+    global pos_lists  # dictionary to store lists for each pos
     # list punctuation marks and newlines to exclude from text
     skip_words = list(punctuation) + ['\n']
     # list pos to exclude
@@ -45,20 +44,3 @@ def preprocess_and_write_to_files():
                         file_append.write(f"{token.lemma_.lower().strip()}\n")
                     # add word to set to track uniqueness
                     pos_files[pos].add(token.lemma_.lower().strip())
-
-
-# delete existing files
-# def delete_existing_files():
-#   # for every pos in pos file dict (global variable)
-#   for pos in pos_files:
-        # recreate file name
-#       file_name = f"{pos}_words.txt"
-        # check if file exists
-#       if os.path.exists(file_name):
-            # remove it!
-#           os.remove(file_name)
-#
-# delete_existing_files()
-
-
-
