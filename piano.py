@@ -3,7 +3,11 @@ import spacy
 nlp = spacy.load("en_core_web_lg")
 # import relevant function
 import word_by_word
-
+import all_pos_sorting_in_one
+# import text from file
+text = open('text.txt', 'r', encoding='utf8').read()
+# convert text to nlp
+doc = nlp(text)
 
 
 # call w_b_w functions one by one for as long as user pleases, return poem afterwards
