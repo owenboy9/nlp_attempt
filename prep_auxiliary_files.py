@@ -47,7 +47,7 @@ def preprocess_and_write_to_files():
                     pos_files[pos].add(token.lemma_.lower().strip())
 
 
-
+preprocess_and_write_to_files()
 
 # delete existing files
 # def delete_existing_files():
