@@ -1,4 +1,7 @@
 import spacy
+import os
+# set TERM environment variable
+os.environ['TERM'] = 'xterm-256color'
 # load eng language model
 nlp = spacy.load("en_core_web_lg")
 # import relevant function
