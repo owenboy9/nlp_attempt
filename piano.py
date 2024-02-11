@@ -4,9 +4,10 @@ import os
 os.environ['TERM'] = 'xterm-256color'
 # load eng language model
 nlp = spacy.load("en_core_web_lg")
-# import relevant function
+# import relevant functions
 from menu import menu
 from all_pos_sorting_in_one import sort_and_save
+from book_writing import write_poem
 # import text from file
 text = open('text.txt', 'r', encoding='utf8').read()
 # convert text to nlp
@@ -19,8 +20,6 @@ def piano():
     # capture poem returned by menu()
     final_composition = menu()
     poem = ' '.join(final_composition)
+    write_poem(poem)
     print('here\'s what you have played:\n')
     print(poem)
-
-
-# at the end, asses sentimental value and write into an appropriate text file, adapt prep_aux_files function for that purpose

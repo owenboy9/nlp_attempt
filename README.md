@@ -4,6 +4,8 @@ you press parts of speech that are on offer, and it composes your poem by pickin
 
 its vocabulary sprouts out of gertrude stein's tender buttons and virginia woolf's mrs. dalloway. for now, that is: the literary universe is vast and malleable.
 
+also! it writes its poems into text files (based on their mood temperature). can there be a smoother way of producing a poetry volume?!
+
 ***more to come***
 
 in the future, the spythia will:
@@ -11,7 +13,6 @@ in the future, the spythia will:
 2. offer the option of choosing if the output should have a 'positive,' 'negative' or 'neutral' sentiment
 3. offer a more elaborate graphic interface
 4. be available online, be it in on a localhost server, but still
-5. write its poems into text files. can there be a smoother way of producing your first poetry volume?
 
 
 ***in fact***
