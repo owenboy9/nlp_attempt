@@ -7,6 +7,10 @@ from all_pos_sorting_in_one import pos_lists, sort_and_save
 nlp = spacy.load("en_core_web_lg")
 
 
+# define the menu layout
+menu_layout = ('\n'
+               '* 1. adjective * 2. noun * 3. pronoun * 4. verb * 5. adposition * 6. adverb * 7. interjection * 8. conjunction *\n'
+               'Press enter twice for newline\n')
 def menu():
     # empty list to store the words in
     poem = []
@@ -14,7 +18,7 @@ def menu():
     print('_' * 50)
     print('\nwelcome to this simple hybrid of a dadaist poet and a pythia\n')
     print('choose your words carefully, one by one, by typing in numbers from 1 to 8:\n')
-    print('1. adjective\n2. noun\n3. pronoun\n4. verb\n5. adposition\n6. adverb\n7. interjection\n8. conjunction\n')
+    print('\n1. adjective * 2. noun * 3. pronoun * 4. verb * 5. adposition * 6. adverb * 7. interjection * 8. conjunction\n')
     print('press enter twice for newline\n')
     # exit option
     print('to exit press Q\n')
@@ -47,17 +51,16 @@ def menu():
 
                 # add word to poem
                 poem.append(one)
+                # clear console and print menu layout
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print(menu_layout)
+                # print updated poem
                 spythia = ' '.join(word for word in poem)
-                print('_' * 50)
-                print(f'\nthis is what you have so far:\n\n{spythia}\n')
-                print('_' * 50)
-                print('\n1. adjective\n2. noun\n3. pronoun\n4. verb\n5. adposition\n6. adverb\n7. interjection\n8. conjunction\n')
-                print('press enter twice for newline\n')
-                print('_' * 50)
+                print(f'\n{spythia}')
             else:
-                print('numbers from 1 to 8 or double enter please')
+                continue
         except ValueError:
-            print("invalid input. please enter a number.")
+            continue
 
     return poem
 
@@ -79,4 +82,4 @@ def convert_number_to_pos(number):
     elif number == 7:
         return 'INTJ'
     elif number == 8:
-        return 'CONJ'
+        return 'CCONJ'

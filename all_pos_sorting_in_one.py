@@ -25,7 +25,7 @@ def sort_and_save():
         # target the words we do want to deal with
         if token.text not in skip_words and pos not in exclude_pos:
             # filter out stubborn rubbish
-            if '--' not in token.text:
+            if '--' or '-' or '\'' not in token.text:
                 # convert 'SCONJ' to 'CCONJ' to eliminate unnecessary distinction
                 if pos == 'SCONJ':
                     pos = 'CCONJ'
