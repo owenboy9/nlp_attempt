@@ -43,4 +43,4 @@ def write_poem(poem):
 
     # write poem to the file (open file in append mode ("a") to avoid overwriting existing content)
     with open(filename, "a") as file:
-        file.write("\n".join(poem) + "\n\n")
+        file.write(poem + "\n\n")
