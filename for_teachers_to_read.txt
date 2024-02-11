@@ -1,7 +1,7 @@
 spythia works like this:
 
-1) in text.txt there are tender buttons and mrs. dalloway in their entirety. that is spythia's reference text.
-2) sort_and_save() (in all_pos_sorting_in_one) stores preprocessed (filtered, stripped, lemmatized, etc.) words in a dictionary of 8 prechosen part-of-speech lists.
+1. in text.txt there are tender buttons and mrs. dalloway in their entirety. that is spythia's reference text.
+2. sort_and_save() (in all_pos_sorting_in_one) stores preprocessed (filtered, stripped, lemmatized, etc.) words in a dictionary of 8 prechosen part-of-speech lists.
 3. one_word() (in word_by_word) takes the pos lists created by sort_and_safe() and stored in a variable, and returns ONE randomly chosen word (one list at a time)
 4. convert_number_to_pos() (in menu) is an auxiliary function tailored specifically to translate user input (int) to spacy pos tags, which in their turn constitute the names of the pos lists from sort_and_safe()
 5. menu() (in menu) is a menu function where the user chooses word categories by entering numbers that correspond to them (1 through 8), which – thanks to convert_number_to_pos() – trigger one_word() and return randomly chosen words for as long as the user wants to. the user has the option of adding newline, too. each time a new word is chosen, the function prints the whole poem in its current shape. when the user presses 'q', the entire poem is presented to them one final time. the function returns the poem as a list.
