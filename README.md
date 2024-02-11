@@ -4,7 +4,7 @@ you press parts of speech that are on offer, and it composes your poem by pickin
 
 its vocabulary sprouts out of gertrude stein's tender buttons and virginia woolf's mrs. dalloway. for now, that is: the literary universe is vast and malleable.
 
-also! it writes its poems into text files (based on their mood temperature). can there be a smoother way of producing a poetry volume?!
+also! they writes their poems into text files. can there be a smoother way of producing a poetry volume?!
 
 ***more to come***
 
@@ -19,7 +19,7 @@ in the future, the spythia will:
 
 it's not entirely true.
 
-the general sentiment will most likely be a category for spythia to sort and save their prophetry in files. something like:
+the general sentiment is a category for spythia to sort and save their prophetry in files. something like:
 
 VERY SAD POEMS
 
