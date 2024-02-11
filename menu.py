@@ -48,7 +48,12 @@ def menu():
                 # add word to poem
                 poem.append(one)
                 spythia = ' '.join(word for word in poem)
-                print(f'this is what you have so far: {spythia}')
+                print('_' * 50)
+                print(f'\nthis is what you have so far:\n\n{spythia}\n')
+                print('_' * 50)
+                print('\n1. adjective\n2. noun\n3. pronoun\n4. verb\n5. adposition\n6. adverb\n7. interjection\n8. conjunction\n')
+                print('press enter twice for newline\n')
+                print('_' * 50)
             else:
                 print('numbers from 1 to 8 or double enter please')
         except ValueError:
