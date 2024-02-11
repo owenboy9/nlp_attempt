@@ -1,18 +1,32 @@
-a simple hybrid of a dadaist poet and a pythia, an app deeply rooted in european romantic tradition, in other words. it asks the user to choose how many words from the parts of speech that are on offer they want to use, and then it fishes those words at random from gertrude stein's tender buttons and virginia woolf's mrs. dalloway. then it spits out a prophetic verse.
+a simple hybrid of a dadaist poet and a pythia. it works like a piano: 
+
+you press parts of speech that are on offer, and it composes your poem by picking words at random (or is it by fate?) from within their categories. and then it spits out a prophetic verse.
+
+its vocabulary sprouts out of gertrude stein's tender buttons and virginia woolf's mrs. dalloway. for now, that is: the literary universe is vast and malleable.
 
 ***more to come***
 
-in the future, the app will:
-1. arrange the words in a controlled order, interlacing the different parts of speech instead of jamming them together
-2. offer the option of ordering a poem on a theme of one's choice
-3. offer the option of choosing if the output should have a 'positive' or 'negative' sentiment
+in the future, the spythia will:
+1. offer the option of ordering a poem on a theme of one's choice
+2. offer the option of choosing if the output should have a 'positive,' 'negative' or 'neutral' sentiment
 3. offer a more elaborate graphic interface
-4. be available online, be in on a localhost server, but still
+4. be available online, be it in on a localhost server, but still
+5. write its poems into text files. can there be a smoother way of producing your first poetry volume?
+
 
 ***in fact***
 
-it's not true.
+it's not entirely true.
 
-it will work like a piano: you press parts of speech in the order you want to have them, and it'll compose your poem of words corresponding to them, in the order you asked for.
+the general sentiment will most likely be a category for spythia to sort and save their prophetry in files. something like:
 
-the general sentiment will still be an option.
+VERY SAD POEMS
+
+SOMEWHAT GLOOMY VERSES
+
+INDIFFERENT LINES, IF THAT'S EVEN POSSIBLE
+
+LITTLE DIMPLE LYRICS
+
+...
+and so on. for now, it's really hard to imagine spythia manufacturing chirpingly cheerful candy bites – but who knows?
