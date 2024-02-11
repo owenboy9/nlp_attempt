@@ -18,8 +18,9 @@ def piano():
     pos_lists = sort_and_save()
     # capture poem returned by menu()
     final_composition = menu()
+    poem = ' '.join(final_composition)
     print('here\'s what you have played:\n')
-    print(' '.join(final_composition))
+    print(poem)
 
 
 # at the end, asses sentimental value and write into an appropriate text file, adapt prep_aux_files function for that purpose
