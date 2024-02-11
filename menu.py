@@ -10,20 +10,19 @@ nlp = spacy.load("en_core_web_lg")
 def menu():
     # empty list to store the words in
     poem = []
+    # display list of options
+    print('_' * 50)
+    print('\nwelcome to this simple hybrid of a dadaist poet and a pythia\n')
+    print('choose your words carefully, one by one, by typing in numbers from 1 to 8:\n')
+    print('1. adjective\n2. noun\n3. pronoun\n4. verb\n5. adposition\n6. adverb\n7. interjection\n8. conjunction\n')
+    print('press enter twice for newline\n')
+    # exit option
+    print('to exit press Q\n')
+    print('_' * 50)
     # initiate loop with easy break option
     while True:
         # clear the console making sure the code can run on either windows or unix
         os.system('cls' if os.name == 'nt' else 'clear')
-
-        # display list of options
-        print('_' * 50)
-        print('\nwelcome to this simple hybrid of a dadaist poet and a pythia\n')
-        print('choose your words carefully, one by one, by typing in numbers from 1 to 8:\n')
-        print('1. adjective\n2. noun\n3. pronoun\n4. verb\n5. adposition\n6. adverb\n7. interjection\n8. conjunction\n')
-        print('press enter twice for newline\n')
-        # exit option
-        print('to exit press Q\n')
-        print('_' * 50)
 
         # space for user input for pos
         user_input = input()
@@ -33,9 +32,7 @@ def menu():
             break
         # newline option
         elif user_input == '':
-            poem.append('\n')
-        else:
-            print('not sure what you mean')
+            poem.append(f'\n')
 
         # make sure user input for pos is an int & prevent program from crashing
         try:
@@ -50,7 +47,8 @@ def menu():
 
                 # add word to poem
                 poem.append(one)
-                print(f'this is what you have so far: {poem}')
+                spythia = ' '.join(word for word in poem)
+                print(f'this is what you have so far: {spythia}')
             else:
                 print('numbers from 1 to 8 or double enter please')
         except ValueError:
