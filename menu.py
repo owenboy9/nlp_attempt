@@ -54,12 +54,14 @@ def menu():
                 # clear console and print menu layout
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print(menu_layout)
-                # print updated poem
+                # print updated poem in a nice line form
                 spythia = ' '.join(word for word in poem)
                 print(f'\n{spythia}')
             else:
+                # no error handling message will show and disrupt the flow
                 continue
         except ValueError:
+            # no error handling message will show and disrupt the flow
             continue
 
     return poem

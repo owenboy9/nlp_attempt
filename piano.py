@@ -22,4 +22,4 @@ def piano():
     print(' '.join(final_composition))
 
 
-# at the end, asses sentimental value and write into a text file, adapt prep_aux_files function for that purpose
+# at the end, asses sentimental value and write into an appropriate text file, adapt prep_aux_files function for that purpose
