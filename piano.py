@@ -19,7 +19,9 @@ def piano():
     pos_lists = sort_and_save()
     # capture poem returned by menu()
     final_composition = menu()
+    # make sure it's a nice printable and savable string
     poem = ' '.join(final_composition)
+    # write it into its file based on its sentiment score
     write_poem(poem)
     print('here\'s what you have played:\n')
     print(poem)
