@@ -22,7 +22,4 @@ def piano():
     print(' '.join(final_composition))
 
 
-# press play
-piano()
-
 # at the end, asses sentimental value and write into a text file, adapt prep_aux_files function for that purpose
