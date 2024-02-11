@@ -1,12 +1,12 @@
 import spacy
 # import pos functions from basic_functions
-from basic_functions import adjectives, nouns, pron, verbs, adps, interjections, conj, adverbs
+from nlp_attempt.function_drafts.basic_functions import adjectives, nouns, pron, verbs, adps, interjections, conj, adverbs
 
 # load eng lang model
 nlp = spacy.load("en_core_web_lg")
 
 # import text from file
-text = open('text.txt', 'r', encoding='utf8').read()
+text = open('../text.txt', 'r', encoding='utf8').read()
 
 # process text with spaCy
 doc = nlp(text)

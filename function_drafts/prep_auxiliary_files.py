@@ -5,7 +5,7 @@ from string import punctuation
 # load eng language model
 nlp = spacy.load("en_core_web_lg")
 # import text from file
-text = open('text.txt', 'r', encoding='utf8').read()
+text = open('../text.txt', 'r', encoding='utf8').read()
 # convert text to nlp
 doc = nlp(text)
 
