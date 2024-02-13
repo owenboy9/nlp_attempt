@@ -31,3 +31,14 @@ LITTLE DIMPLE LYRICS
 
 ...
 and so on. for now, it's really hard to imagine spythia manufacturing chirpingly cheerful candy bites – but who knows?
+
+TO RUN IT, you'll need to download the following files:
+text.txt
+all_pos_sorting_in_one.py
+word_by_word.py
+menu.py
+book_writing.py
+piano.py
+press_play.py
+RUN IT from 
+press_play.py
